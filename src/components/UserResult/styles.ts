@@ -10,12 +10,14 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  color: rgba(0, 0, 0, 0.8);
   border-radius: 0.6rem;
-  background-color: #555;
+  background-color: rgba(0, 0, 0, 0.1);
 `;
 
 export const Title = styled.div`
   cursor: pointer;
+  width: 100%;
   height: 6vh;
   min-height: 4rem;
   padding: 0 1rem;
@@ -23,7 +25,6 @@ export const Title = styled.div`
   line-height: max(6vh, 4rem);
   text-align: center;
   border-radius: 0.6rem;
-  background-color: #555;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -31,7 +32,7 @@ export const Title = styled.div`
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #444;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 `;
 

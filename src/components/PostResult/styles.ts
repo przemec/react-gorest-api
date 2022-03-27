@@ -2,50 +2,49 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 60rem;
+  max-width: 70rem;
   min-height: 4rem;
-  margin-bottom: 0.4rem;
-  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   border-radius: 0.6rem;
-  background-color: #555;
-`;
-
-export const Title = styled.div`
-  cursor: pointer;
-  width: 100%;
-  height: 6vh;
-  min-height: 4rem;
-  padding: 0 1rem;
-  line-height: 6vh;
-  line-height: max(6vh, 4rem);
-  text-align: center;
-  border-radius: 0.6rem;
-  background-color: #555;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #444;
+  background-color: rgba(0, 0, 0, 0.1);
+  @media (min-width: 800px) {
+    padding: 2rem 3rem;
   }
 `;
 
-export const Details = styled.div`
+export const Title = styled.div`
   width: 100%;
-  padding: 1rem 3rem;
+  min-height: 4rem;
+  padding: 1rem 0;
+  font-size: 2rem;
+  border-radius: 0.6rem;
+`;
+
+export const Author = styled.div`
+  width: 100%;
+  min-height: 4rem;
+  font-size: 2rem;
+  border-radius: 0.6rem;
+`;
+
+export const Body = styled.div`
+  width: 100%;
+  padding: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 `;
 
-export const DetailRow = styled.div`
+export const Comments = styled.div`
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;

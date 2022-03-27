@@ -17,16 +17,17 @@ export const SearchBar = styled.input`
   padding: 2rem;
   text-align: center;
   font-size: 1.7rem;
-  color: rgb(255, 255, 255);
-  background: rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 0.4rem;
+  transition: background-color 0.3s ease-in-out;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.35);
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(0, 0, 0, 0.2);
   }
   &::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
     opacity: 1;
   }
 `;

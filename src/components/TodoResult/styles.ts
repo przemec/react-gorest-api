@@ -7,15 +7,14 @@ export const Container = styled.div<C.ContainerProps>`
   min-height: 4rem;
   margin-bottom: 0.4rem;
   font-size: 2rem;
-  color: ${({ todoStatus }) => (todoStatus === "completed" ? "#b3edaf" : "#fff")};
   opacity: ${({ todoStatus, isExpanded }) => (todoStatus === "completed" && !isExpanded ? 0.6 : 1)};
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   border-radius: 0.6rem;
-  background-color: #555;
-  transition: opacity 0.3s ease-in-out;
+  background-color: ${({ todoStatus }) => (todoStatus === "completed" ? "rgba(0, 255, 18, 0.3)" : "rgba(0, 0, 0, 0.1)")};
+  transition: opacity 0.3s ease, color 0.3s ease;
 
   &:hover {
     opacity: 1;
@@ -32,7 +31,6 @@ export const Title = styled.div`
   line-height: max(6vh, 4rem);
   text-align: center;
   border-radius: 0.6rem;
-  background-color: #555;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -40,7 +38,7 @@ export const Title = styled.div`
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #444;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 `;
 
