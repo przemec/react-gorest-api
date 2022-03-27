@@ -58,7 +58,7 @@ const PostsList: React.FC<C.PostsProps> = ({ posts, addPosts, requestPage, updat
   return (
     <S.Container>
       <S.ResultsWrapper>
-        {posts.length === 0 ? (
+        {posts && posts.length === 0 ? (
           <h1>Loading initial records...</h1>
         ) : (
           posts.map((post, index: number) => <PostResult key={index} data={post} />)

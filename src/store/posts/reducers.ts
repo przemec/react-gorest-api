@@ -10,13 +10,15 @@ const posts = (state: C.PostsState = { list: [], page: 1 }, action: Action) => {
     case postsOperations.CLEAR:
       return { list: [], page: 1 };
     case postsOperations.ADD_COMMENTS:
-      const edited = state.list.map((post) => {
-        if (post.id === action.postID) {
-          post.comments = action.newcomments
-        }
-        return post;
+      const editedList = state.list.map((post) => {
+        //if id of post is not equal to id of post that is being edited, then return original post
+        if (post.id !== action.postID) return post;
+        //if there is no "comments" key in post object, then create one
+        if (!post.comments) return { ...post, comments: [...action.newcomments] };
+        //if there is "comments" key in post object, just add new comments to array
+        return { ...post, comments: [...post.comments, ...action.newcomments] };
       });
-      return edited;
+      return { ...state, list: editedList };
     case postsOperations.UPDATE_PAGE:
       return { ...state, page: action.newpage };
     default:

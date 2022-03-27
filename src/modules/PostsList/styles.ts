@@ -7,8 +7,6 @@ export const Container = styled.div`
 
 export const ResultsWrapper = styled.div`
   width: 100%;
-  padding: 0 0.5rem;
-  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
