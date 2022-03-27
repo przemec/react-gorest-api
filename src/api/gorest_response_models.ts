@@ -6,10 +6,14 @@ export interface meta_response {
     limit: number;
     links: {
       previous: string | null;
-      current: string;
+      current: string | null;
       next: string | null;
     };
   };
+}
+
+interface gorest_response {
+  meta: meta_response;
 }
 
 export type UserStatus = "active" | "inactive";
@@ -22,9 +26,8 @@ export interface user {
   status: UserStatus;
 }
 
-export interface users_response {
+export interface users_response extends gorest_response {
   data: user[];
-  meta: meta_response;
 }
 
 export type TodoStatus = "completed" | "pending";
@@ -37,9 +40,8 @@ export interface todo {
   status: TodoStatus;
 }
 
-export interface todos_response {
+export interface todos_response extends gorest_response {
   data: todo[];
-  meta: meta_response;
 }
 
 export interface post {
@@ -61,7 +63,10 @@ export interface post_with_comments extends post {
   comments?: comment[];
 }
 
-export interface posts_response {
+export interface posts_response extends gorest_response {
   data: post[];
-  meta: meta_response;
+}
+
+export interface comments_response extends gorest_response {
+  data: comment[];
 }
