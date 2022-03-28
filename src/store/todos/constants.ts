@@ -6,16 +6,16 @@ export interface TodosState {
   page: number;
 }
 
-export interface AddTodosAction {
+export interface AddTodos {
   type: todosOperations.ADD;
   newtodos: todo[];
 }
 
-export interface ClearTodosAction {
+export interface ClearTodos {
   type: todosOperations.CLEAR;
 }
 
-export interface UpdatePageAction {
+export interface UpdatePage {
   type: todosOperations.UPDATE_PAGE;
   newpage: number;
 }

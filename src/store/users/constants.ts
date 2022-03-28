@@ -6,21 +6,21 @@ export interface UsersState {
   page: number;
 }
 
-export interface AddUsersAction {
+export interface AddUsers {
   type: usersOperations.ADD;
   newusers: user[];
 }
 
-export interface AddSingleUserAction {
+export interface AddSingleUser {
   type: usersOperations.ADD_SINGLE_USER;
   newuser: user;
 }
 
-export interface ClearUsersAction {
+export interface ClearUsers {
   type: usersOperations.CLEAR;
 }
 
-export interface UpdatePageAction {
+export interface UpdatePage {
   type: usersOperations.UPDATE_PAGE;
   newpage: number;
 }

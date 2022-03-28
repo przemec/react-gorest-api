@@ -1,7 +1,7 @@
 import { usersOperations } from "./actions";
 import * as C from "./constants";
 
-type Action = C.AddUsersAction | C.ClearUsersAction | C.UpdatePageAction | C.AddSingleUserAction;
+type Action = C.AddUsers | C.ClearUsers | C.UpdatePage | C.AddSingleUser;
 
 const users = (state: C.UsersState = { list: [], page: 1 }, action: Action) => {
   switch (action.type) {

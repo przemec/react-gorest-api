@@ -1,7 +1,7 @@
 import { todosOperations } from "./actions";
 import * as C from "./constants";
 
-type Action = C.AddTodosAction | C.ClearTodosAction | C.UpdatePageAction;
+type Action = C.AddTodos | C.ClearTodos | C.UpdatePage;
 
 const todos = (state: C.TodosState = { list: [], page: 1 }, action: Action) => {
   switch (action.type) {

@@ -7,14 +7,14 @@ export const enum todosOperations {
   UPDATE_PAGE = "UPDATE_TODOS_PAGE",
 };
 
-export function addTodos(newtodos: todo[]): C.AddTodosAction {
+export function addTodos(newtodos: todo[]): C.AddTodos {
   return { type: todosOperations.ADD, newtodos };
 }
 
-export function updatePage(newpage: number): C.UpdatePageAction {
+export function updatePage(newpage: number): C.UpdatePage {
   return { type: todosOperations.UPDATE_PAGE, newpage };
 }
 
-export function clearTodos(): C.ClearTodosAction {
+export function clearTodos(): C.ClearTodos {
   return { type: todosOperations.CLEAR };
 }

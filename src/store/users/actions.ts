@@ -8,18 +8,18 @@ export const enum usersOperations {
   UPDATE_PAGE = "UPDATE_USERS_PAGE",
 };
 
-export function addUsers(newusers: user[]): C.AddUsersAction {
+export function addUsers(newusers: user[]): C.AddUsers {
   return { type: usersOperations.ADD, newusers };
 }
 
-export function addNewUser(newuser: user): C.AddSingleUserAction {
+export function addNewUser(newuser: user): C.AddSingleUser {
   return { type: usersOperations.ADD_SINGLE_USER, newuser };
 }
 
-export function updatePage(newpage: number): C.UpdatePageAction {
+export function updatePage(newpage: number): C.UpdatePage {
   return { type: usersOperations.UPDATE_PAGE, newpage };
 }
 
-export function clearUsers(): C.ClearUsersAction {
+export function clearUsers(): C.ClearUsers {
   return { type: usersOperations.CLEAR };
 }
