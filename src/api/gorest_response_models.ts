@@ -16,14 +16,28 @@ interface gorest_response {
   meta: meta_response;
 }
 
+export type UserGender = "male" | "female";
+
 export type UserStatus = "active" | "inactive";
 
 export interface user {
-  id: number;
-  gender: string;
+  id?: number;
+  gender: UserGender;
   name: string;
   email: string;
   status: UserStatus;
+}
+
+export interface user_add_error {
+  field: string;
+  message: string;
+}
+
+export interface user_add_response extends gorest_response {
+  data: user;
+}
+export interface user_add_error_response extends gorest_response {
+  data: user_add_error[];
 }
 
 export interface users_response extends gorest_response {

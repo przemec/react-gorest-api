@@ -11,6 +11,11 @@ export interface AddUsersAction {
   newusers: user[];
 }
 
+export interface AddSingleUserAction {
+  type: usersOperations.ADD_SINGLE_USER;
+  newuser: user;
+}
+
 export interface ClearUsersAction {
   type: usersOperations.CLEAR;
 }
