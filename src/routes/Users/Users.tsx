@@ -38,7 +38,6 @@ const Users: React.FC<C.UsersProps> = ({ users, addUsers, requestPage, updatePag
       .then((res) => res.json())
       .then(({ data, meta }: users_response) => {
         if (data.length === 0) return setLoadDone(true);
-        console.log(data);
         updatePage(meta.pagination.page + 1);
         addUsers(data);
       });

@@ -19,7 +19,6 @@ const NewUser = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      console.log(formValues);
       const res = await fetch("https://gorest.co.in/public/v1/users", {
         method: "POST",
         headers: new Headers({
