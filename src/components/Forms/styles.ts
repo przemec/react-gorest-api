@@ -52,6 +52,19 @@ export const Option = styled.option`
   background-color: #bbb;
 `;
 
+export const TextArea = styled.textarea`
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 8rem;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-family: unset;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+`;
+
 export const SubmitButton = styled.button`
   cursor: pointer;
   min-width: 22rem;

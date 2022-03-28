@@ -42,10 +42,6 @@ export const Author = styled.div`
 export const Body = styled.div`
   width: 100%;
   padding: 1rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 `;
 
 export const Comments = styled.div`

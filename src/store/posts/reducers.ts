@@ -1,7 +1,7 @@
 import { postsOperations } from "./actions";
 import * as C from "./constants";
 
-type Action = C.AddPostsAction | C.ClearPostsAction | C.UpdatePageAction | C.AddCommentsToPostAction;
+type Action = C.AddPosts | C.ClearPosts | C.UpdatePage | C.AddCommentsToPost | C.AddSinglePost;
 
 const posts = (state: C.PostsState = { list: [], page: 1 }, action: Action) => {
   switch (action.type) {
@@ -19,6 +19,8 @@ const posts = (state: C.PostsState = { list: [], page: 1 }, action: Action) => {
         return { ...post, comments: [...post.comments, ...action.newcomments] };
       });
       return { ...state, list: editedList };
+    case postsOperations.ADD_SINGLE_POST:
+      return { ...state, list: [action.newpost, ...state.list] };
     case postsOperations.UPDATE_PAGE:
       return { ...state, page: action.newpage };
     default:

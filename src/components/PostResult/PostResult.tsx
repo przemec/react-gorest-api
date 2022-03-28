@@ -29,7 +29,6 @@ const PostResult: React.FC<C.PostResultProps> = React.memo(({ data, addComments 
       });
   }, [addComments, id, page]);
   useEffect(() => {
-    console.log("page");
     //run fetch* if there is next page of comments in previous loadComments api response
     //*but not automatically when component loads, hence page !== 1
     page !== 1 && loadComments();

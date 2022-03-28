@@ -6,22 +6,27 @@ export interface PostsState {
   page: number;
 }
 
-export interface AddPostsAction {
+export interface AddPosts {
   type: postsOperations.ADD;
   newposts: post[];
 }
 
-export interface AddCommentsToPostAction {
+export interface AddCommentsToPost {
   type: postsOperations.ADD_COMMENTS;
   newcomments: comment[];
   postID: number;
 }
 
-export interface ClearPostsAction {
+export interface AddSinglePost {
+  type: postsOperations.ADD_SINGLE_POST;
+  newpost: post;
+}
+
+export interface ClearPosts {
   type: postsOperations.CLEAR;
 }
 
-export interface UpdatePageAction {
+export interface UpdatePage {
   type: postsOperations.UPDATE_PAGE;
   newpage: number;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { GOREST_API_TOKEN } from "../../../api/gorest_api_token";
-import { user, user_add_error_response, user_add_response } from "../../../api/gorest_response_models";
+import { user, add_error_response, user_add_response } from "../../../api/gorest_response_models";
 import { addNewUser } from "../../../store/users/actions";
 import * as S from "../styles";
 
@@ -39,7 +39,7 @@ const NewUser = () => {
         dispatch(addNewUser({ ...formValues, id: resJson.data.id }));
         setMessage("User created successfully.");
       } else {
-        const resJson: user_add_error_response = await res.json(); 
+        const resJson: add_error_response = await res.json();
         setMessage(`${resJson.data[0].field} ${resJson.data[0].message}`);
       }
     } catch (err) {
@@ -54,10 +54,7 @@ const NewUser = () => {
 
   return (
     <S.Form onSubmit={handleSubmit}>
-      <S.FormRow>
-        <S.Label htmlFor="name">Name</S.Label>
-        <S.Input type="text" id="name" name="name" placeholder="Name" onChange={handleChange} value={formValues["name"] || ""} />
-      </S.FormRow>
+      <h2>Create new user</h2>
       <S.FormRow>
         <S.Label htmlFor="email">Email</S.Label>
         <S.Input
@@ -68,6 +65,10 @@ const NewUser = () => {
           onChange={handleChange}
           value={formValues["email"] || ""}
         />
+      </S.FormRow>
+      <S.FormRow>
+        <S.Label htmlFor="name">Name</S.Label>
+        <S.Input type="text" id="name" name="name" placeholder="Name" onChange={handleChange} value={formValues["name"] || ""} />
       </S.FormRow>
       <S.FormRow>
         <S.Label htmlFor="gender">Gender</S.Label>
@@ -84,7 +85,7 @@ const NewUser = () => {
         </S.Select>
       </S.FormRow>
 
-      <S.SubmitButton type="submit">Create User</S.SubmitButton>
+      <S.SubmitButton type="submit">Create</S.SubmitButton>
 
       {message && <p>{message}</p>}
     </S.Form>

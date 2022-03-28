@@ -6,9 +6,12 @@ import * as S from "./styles";
 import * as C from "./constants";
 import { post, posts_response } from "../../api/gorest_response_models";
 import { addPosts, updatePage } from "../../store/posts/actions";
+import * as forms from "../../components/Forms";
 import PostResult from "../../components/PostResult";
+import { GOREST_API_TOKEN } from "../../api/gorest_api_token";
 
 const Posts: React.FC<C.PostsProps> = ({ posts, addPosts, requestPage, updatePage }) => {
+  const NewPostForm = forms["NewPost"];
   const [isLoadingDone, setLoadDone] = useState(false);
   const [observedElement, setElement] = useState<HTMLElement | null>(null);
 
@@ -23,7 +26,13 @@ const Posts: React.FC<C.PostsProps> = ({ posts, addPosts, requestPage, updatePag
   );
 
   const loadPosts = useCallback(() => {
-    fetch(`https://gorest.co.in/public/v1/posts?page=${requestPage}`, { method: "GET" })
+    fetch(`https://gorest.co.in/public/v1/posts?page=${requestPage}`, {
+      method: "GET",
+      headers: new Headers({
+        Authorization: `Bearer ${GOREST_API_TOKEN}`,
+        "Content-Type": "application/json",
+      }),
+    })
       .then((res) => res.json())
       .then(({ data, meta }: posts_response) => {
         if (data.length === 0) return setLoadDone(true);
@@ -57,6 +66,7 @@ const Posts: React.FC<C.PostsProps> = ({ posts, addPosts, requestPage, updatePag
 
   return (
     <S.Container>
+      <NewPostForm />
       <S.ResultsWrapper>
         {posts && posts.length === 0 ? (
           <h1>Loading initial records...</h1>
